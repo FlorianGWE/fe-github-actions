@@ -10,6 +10,8 @@ inputs:
 outputs:
   time:
     description: 'The time we said hello.'
+  Runner:
+    description: 'How runs the part inside docker'
 
 runs:
   using: 'docker'
