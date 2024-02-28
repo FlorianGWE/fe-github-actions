@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/sh -l
 
 echo "hello $1 you run my Docker action"
 
