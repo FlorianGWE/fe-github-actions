@@ -13,12 +13,12 @@ jobs:
 
       - name: Hello Action
         id: hello-action
-        uses: hello-world-docker-action/action.yml
+        uses: ./hello-world-docker-action/action.yml
         with:
           who-to-greet: 'runner great'
 
       - name: Use the output
         run:  |
           echo "The time was ${{ steps.hello-action.outputs.time }}"
-          echo "The executor was was ${{ steps.hello-action.outputs.x }}"
+          echo "The executor was was ${{ steps.hello-action.outputs.Runner }}"
         
