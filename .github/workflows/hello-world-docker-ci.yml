@@ -1,0 +1,24 @@
+name: Using own Docker Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-run:
+    runs-on:  ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Hello Action
+        id: hello-action
+        uses: hello-world-docker-action/action.yml
+        with:
+          who-to-greet: 'runner great'
+
+      - name: Use the output
+        run:  |
+          echo "The time was ${{ steps.hello-action.outputs.time }}"
+          echo "The executor was was ${{ steps.hello-action.outputs.x }}"
+        
