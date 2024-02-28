@@ -2,7 +2,10 @@ name: Using own Docker Action
 
 on:
   workflow_dispatch:
-
+    inputs:
+       name:
+        required: true
+    
 jobs:
   docker-run:
     runs-on:  ubuntu-latest
@@ -15,7 +18,7 @@ jobs:
         id: hello-action
         uses: ./hello-world-docker-action
         with:
-          who-to-greet: 'runner great'
+          who-to-greet: '${{ github.event.inputs.message }}'
 
       - name: Use the output
         run:  |
