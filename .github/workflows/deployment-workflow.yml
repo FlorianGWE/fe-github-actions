@@ -1,0 +1,58 @@
+name: Github Actions Demo
+
+# on:
+#   push:
+#     branches: [ main ]
+#     paths-ignore: [.github/**]
+#   pull_request:
+#     branches: [ main ]
+#   schedule:
+#     - cron: '15 6 * * 0'
+#   workflow_dispatch:
+
+permissions:
+  actions: read
+
+on: 
+  push:
+    branches: [ main ] 
+    paths-ignore: [.github/**]
+  pull_request:
+    branches:
+      - main 
+  workflow_dispatch:  
+    inputs:
+      environment:
+        description: 'variable for environment selction'
+        type: environment
+        required: true
+
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: |
+          echo "🎉 The job was triggered by event: ${{ github.event_name }}"
+          echo "Use input ${{ inpout.environment }}"
+    
+
+  Test:
+    runs-on: u8buntu-latest
+    on: workflow_dispatch
+
+    steps:
+      - run: |
+          echo "🎉 The Test was triggered by event: ${{ github.event_name }}"
+
+  Load-Test:
+    runs-on: u8buntu-latest
+    on: workflow_dispatch
+
+    steps:
+      - run: |
+          echo "🎉 The Load Test was triggered by event: ${{ github.event_name }}"
+    
+
+    r
