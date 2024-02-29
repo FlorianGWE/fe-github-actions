@@ -81,5 +81,5 @@ jobs:
           echo "🚀 Step 4..."
           sleep 1
       - run: |
-          echo "🚀 Step 5...  using ${{ env.url }}"
+          echo "🚀 Step 5...  using ${{ environment.url }}"
           sleep 1
