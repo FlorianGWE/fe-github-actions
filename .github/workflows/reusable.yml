@@ -3,7 +3,7 @@ name: Reusable workflow
 on:
   workflow_call:
     inputs:
-      who-to-greet::
+      who-to-greet:
         description: 'A username passed from the caller workflow'
         default: 'world'
         required: false
