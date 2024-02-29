@@ -35,7 +35,7 @@ jobs:
     steps:
       - run: |
           echo "🎉 The job was triggered by event: ${{ github.event_name }}"
-          echo "Use input ${{ input.environment }}"
+          echo "Use input ${{ github.event.inputs.environment }}"
     
 
   Test:
