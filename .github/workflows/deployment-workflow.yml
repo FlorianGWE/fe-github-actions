@@ -55,4 +55,3 @@ jobs:
           echo "🎉 The Load Test was triggered by event: ${{ github.event_name }}"
     
 
-    r
