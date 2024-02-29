@@ -3,7 +3,7 @@ name: Reusable workflow
 on:
   workflow_call:
     inputs:
-      username:
+      who-to-greet:
         description: 'A username passed from the caller workflow'
         default: 'world'
         required: false
@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.username }}
+        run: echo The username is ${{ inputs.who-to-greet }}
 
       - name: time
         id: time
