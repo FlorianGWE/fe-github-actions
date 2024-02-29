@@ -1,4 +1,4 @@
-name: Reuse Buil
+name: Reuse Build
 
 on: [workflow_dispatch]
 
