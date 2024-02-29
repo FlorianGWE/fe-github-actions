@@ -1,0 +1,30 @@
+name: Reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'world'
+        required: false
+        type: string
+    
+    outputs:
+      current-time: 
+        description: 'The time when greeting.'
+        value: ${{ jobs.reusable-job.outputs.current-time }}      
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+
+    outputs:
+      current-time: ${{ steps.time.outputs.time }}
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
+
+      - name: time
+        id: time
+        run: echo "time=$(date)" >> $GITHUB_OUTPUT
